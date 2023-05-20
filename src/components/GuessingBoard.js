@@ -7,16 +7,30 @@ const [
   initGuess,
   initScore,
   initHighestScore,
+  inputMin,
+  inputMax,
   initMessage,
+  initErrMessage,
   initBGImgUrl,
-] = ['?', '', 20, 0, 'Start guessing...', '../src/img/bg-clark-board.png'];
+] = [
+  '?',
+  '',
+  20,
+  0,
+  1,
+  20,
+  'Start guessing...',
+  '',
+  '../src/img/bg-clark-board.png',
+];
 
-const [noNum, correct, tooHigh, tooLow, lost] = [
+const [noNum, correct, tooHigh, tooLow, lost, errMsg] = [
   `🚫 No number found!`,
   `💡 Correct Number!`,
   `Too low! Go higher ⬆️`,
   `Too high! Go lower ⬇️`,
   `💔 You lost the game!`,
+  `⚠️ Please input a number between ${inputMin} and ${inputMax}. ⚠️`,
 ];
 
 const GuessingBoard = () => {
@@ -26,8 +40,17 @@ const GuessingBoard = () => {
   const [score, setScore] = useState(initScore);
   const [highestScore, setHighestScore] = useState(initHighestScore);
   const [message, setMessage] = useState(initMessage);
+  const [errMessage, setErrMessage] = useState(initErrMessage);
 
-  const handleChange = (e) => setGuess(e.target.value);
+  const handleChange = (e) => {
+    let inputValue = e.target.value;
+    if (inputValue < 1 || inputValue > 20) {
+      setErrMessage(errMsg);
+    } else {
+      setErrMessage(initErrMessage);
+    }
+    setGuess(e === '' ? e : inputValue);
+  };
 
   const newGame = () => {
     setScore(initScore);
@@ -36,7 +59,8 @@ const GuessingBoard = () => {
     setMessage(initMessage);
     setCurrentNum(initCurrentNum);
     setGuess(initGuess);
-    console.log('new game button, guess =', guess);
+
+    console.log('new game button, guess =', guess, 'currentNum', currentNum);
   };
 
   function onGuess() {
@@ -62,6 +86,7 @@ const GuessingBoard = () => {
                 onChange={handleChange}
               />
             </div>
+            <p className='input-err-message'>{errMessage}</p>
             <button className='btn send' onClick={onGuess}>
               Guess
             </button>
