@@ -126,4 +126,17 @@ h1 {
   margin-bottom: 3rem;
 }
 
+.score-board {
+  font-size: 24px;
+  font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
+}
+
+.current-score-label, .highest-score-label {
+  margin-bottom: 2rem;
+}
+
+.message {
+  margin: 5rem 0;
+  height: 3rem;
+}
 
