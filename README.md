@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Website Icon:
 <a href="https://www.flaticon.com/free-icons/question-mark" title="question mark icons">Question mark icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by tulpahn - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by flatart_icons - Flaticon</a>
