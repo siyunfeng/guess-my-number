@@ -97,3 +97,18 @@ h1 {
   margin-top: 2rem;
 }
 
+.btn {
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: 'Cherry Swash', 'Arial Narrow', Arial, sans-serif;
+  padding: 2rem 3rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #faca2d;
+  font-weight: 700;
+}
