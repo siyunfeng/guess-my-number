@@ -60,3 +60,40 @@ main {
   padding: 2rem 2rem 2rem 15rem;
 }
 
+/* Elements Style*/
+
+#title {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Ribeye Marrow', 'Bungee Shade', 'Sancreek', 'Nabla', monospace;
+}
+
+.between {
+  font-size: 2rem;
+  padding: 1.5rem 0;
+}
+
+.new-game {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.current-guess {
+  font-size: 6rem;
+  background: #ffffffe7;
+  color: #000000;
+  text-align: center;
+  width: 15rem;
+  padding: 3rem 0rem;
+  margin-top: 2rem;
+}
+

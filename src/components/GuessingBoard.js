@@ -2,11 +2,13 @@ import { useState } from 'react';
 
 const GuessingBoard = () => {
   const [message, setMessage] = useState('Start guessing...');
+  const [currentNum, setCurrentNum] = useState('?');
+
   return (
     <main>
       <button className='btn new-game'>New Game</button>
       <section className='main-box'>
-        <div className='current-guess main-box-top'>?</div>
+        <div className='current-guess main-box-top'>{currentNum}</div>
         <div className='main-box-bottom'>
           <div className='left'>
             <div className='guess-input'>
