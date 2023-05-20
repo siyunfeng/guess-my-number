@@ -12,7 +12,7 @@ const GuessingBoard = () => {
         <div className='main-box-bottom'>
           <div className='left'>
             <div className='guess-input'>
-              <input type='number' className='guess' />
+              <input type='number' min={1} max={20} className='guess' />
             </div>
             <button className='btn send'>Guess</button>
           </div>
