@@ -58,7 +58,8 @@ const GuessingBoard = () => {
     secretNum = Math.trunc(Math.random() * 20) + 1;
   };
 
-  const onGuess = () => {
+  const onGuess = (e) => {
+    e.preventDefault();
     if (guess) {
       setCurrentNum(guess);
       if (guess === secretNum) {
@@ -96,7 +97,7 @@ const GuessingBoard = () => {
         </div>
         <div className='main-box-bottom'>
           <div className='left'>
-            <div className='guess-input'>
+            <form onSubmit={onGuess}>
               <input
                 type='number'
                 min={1}
@@ -104,11 +105,11 @@ const GuessingBoard = () => {
                 className='guess'
                 onChange={handleChange}
               />
-            </div>
-            <p className='input-err-message'>{errMessage}</p>
-            <button className='btn send' onClick={onGuess}>
-              Guess
-            </button>
+              <p className='input-err-message'>{errMessage}</p>
+              <button className='btn submit-guess' disabled={isWin}>
+                Guess
+              </button>
+            </form>
           </div>
           <div className='right'>
             <h2 className={`message ${isWin ? 'won' : ''}`}>{message}</h2>
