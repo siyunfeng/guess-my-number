@@ -37,6 +37,7 @@ main {
 
 .main-box {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -44,6 +45,7 @@ main {
 
 .main-box-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 5rem;
 }
