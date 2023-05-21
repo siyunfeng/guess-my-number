@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Bungee+Shade&family=Cantarell&family=Cherry+Swash&family=DM+Sans&family=DM+Serif+Display&family=Fjalla+One&family=Flamenco&family=Indie+Flower&family=Josefin+Sans:wght@300&family=Nabla&family=Oswald&family=Ribeye+Marrow&family=Sancreek&family=Source+Sans+Pro&family=Special+Elite&family=Ubuntu&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Bungee+Shade&family=Cantarell&family=Cherry+Swash&family=DM+Sans&family=DM+Serif+Display&family=Fjalla+One&family=Flamenco&family=Indie+Flower&family=Josefin+Sans:wght@300&family=Nabla&family=Oswald&family=Ribeye+Marrow&family=Sancreek&family=Source+Sans+Pro&family=Special+Elite&family=Ubuntu&family=Vast+Shadow&family=Yeseva+One&family=Zilla+Slab+Highlight:wght@700&display=swap');
 
 /* Default */
 
@@ -18,7 +18,8 @@ body {
   color: #eee;
   background-image: url('../src/img/bg-clark-board.png');
   object-fit: cover;
-}
+} 
+
 
 /* Layout */
 
@@ -31,6 +32,7 @@ main {
   height: 65vh;
   color: #eee;
   border-top: 0.5rem solid #ffffff;
+  border-bottom: 0.5rem solid #ffffff;
 }
 
 .main-box {
@@ -126,6 +128,13 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
+.correct-guess {
+  font-weight: bolder;
+  color: #faca2d;
+  font-size: 8rem;
+  border-radius: 50%;
+}
+
 .input-err-message {
   font-family: inherit;
   font-size: 2rem;
@@ -145,6 +154,29 @@ h1 {
 .message {
   margin: 5rem 0;
   height: 3rem;
+}
+
+.won {
+  font-weight: 700;
+  font-family: 'Zilla Slab Highlight', 'Nabla', 'Arial Narrow', Arial, sans-serif;
+  font-size: 4rem;
+  animation: float 0.7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.main-won {
+  background-image: url('./img/win1.png');
 }
 
 .icon-score-board {

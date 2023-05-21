@@ -11,70 +11,89 @@ const [
   inputMax,
   initMessage,
   initErrMessage,
-  initBGImgUrl,
-] = [
-  '?',
-  '',
-  20,
-  0,
-  1,
-  20,
-  'Start guessing...',
-  '',
-  '../src/img/bg-clark-board.png',
-];
+  initIsWin,
+] = ['?', '', 20, 0, 1, 20, 'Start guessing...', '', false];
 
-const [noNum, correct, tooHigh, tooLow, lost, errMsg] = [
-  `🚫 No number found!`,
-  `💡 Correct Number!`,
-  `Too low! Go higher ⬆️`,
-  `Too high! Go lower ⬇️`,
-  `💔 You lost the game!`,
+const [noNum, correctNum, tooHigh, tooLow, lost, errMsg] = [
+  `🚫 No number found! `,
+  `💡 Correct! You won! `,
+  `Too high! Go lower ⬇️ `,
+  `Too low! Go higher ⬆️ `,
+  `💔 You lost the game! `,
   `⚠️ Please input a number between ${inputMin} and ${inputMax}. ⚠️`,
 ];
 
+let secretNum = Math.trunc(Math.random() * inputMax) + inputMin;
+
 const GuessingBoard = () => {
-  let secretNum = Math.trunc(Math.random() * 20) + 1;
   const [currentNum, setCurrentNum] = useState(initCurrentNum);
   const [guess, setGuess] = useState(initGuess);
   const [score, setScore] = useState(initScore);
   const [highestScore, setHighestScore] = useState(initHighestScore);
   const [message, setMessage] = useState(initMessage);
   const [errMessage, setErrMessage] = useState(initErrMessage);
+  const [isWin, setIsWin] = useState(initIsWin);
 
   const handleChange = (e) => {
-    let inputValue = e.target.value;
-    if (inputValue < 1 || inputValue > 20) {
-      setErrMessage(errMsg);
+    if (e === '') {
+      setGuess(e);
     } else {
-      setErrMessage(initErrMessage);
+      let inputValue = Number(e.target.value);
+      if (inputValue < 1 || inputValue > 20) {
+        setErrMessage(errMsg);
+      } else {
+        setErrMessage(initErrMessage);
+        setGuess(inputValue);
+      }
     }
-    setGuess(e === '' ? e : inputValue);
   };
 
   const newGame = () => {
-    setScore(initScore);
-    secretNum = Math.trunc(Math.random() * 20) + 1;
-
-    setMessage(initMessage);
     setCurrentNum(initCurrentNum);
-    setGuess(initGuess);
+    setScore(initScore);
+    setIsWin(initIsWin);
+    setMessage(initMessage);
+    handleChange(initGuess);
 
-    console.log('new game button, guess =', guess, 'currentNum', currentNum);
+    secretNum = Math.trunc(Math.random() * 20) + 1;
   };
 
-  function onGuess() {
-    setCurrentNum(guess);
-    console.log('guess =', guess, 'currentNum =', currentNum);
-  }
+  const onGuess = () => {
+    if (guess) {
+      setCurrentNum(guess);
+      if (guess === secretNum) {
+        setMessage(correctNum);
+        setIsWin(true);
+        if (score > highestScore) {
+          setHighestScore(score);
+        }
+      } else if (guess !== secretNum) {
+        if (!score) {
+          setMessage(lost);
+          setScore(0);
+        } else {
+          setMessage(guess > secretNum ? tooHigh : tooLow);
+          setScore(score - 1);
+        }
+      }
+    } else {
+      setMessage(noNum);
+    }
+  };
 
   return (
-    <main>
+    <main className={isWin ? 'main-won' : ''}>
       <button className='btn new-game' onClick={newGame}>
         New Game
       </button>
       <section className='main-box'>
-        <div className='current-guess main-box-top'>{currentNum}</div>
+        <div
+          className={`current-guess main-box-top ${
+            isWin ? 'correct-guess' : ''
+          }`}
+        >
+          {currentNum}
+        </div>
         <div className='main-box-bottom'>
           <div className='left'>
             <div className='guess-input'>
@@ -92,6 +111,7 @@ const GuessingBoard = () => {
             </button>
           </div>
           <div className='right'>
+            <h2 className={`message ${isWin ? 'won' : ''}`}>{message}</h2>
             <div className='score-board'>
               <div className='current-score-label'>
                 <img src={iconScore} alt='Score' className='icon-score-board' />
@@ -108,7 +128,6 @@ const GuessingBoard = () => {
                 <span className='highest-score-value'>{highestScore}</span>
               </div>
             </div>
-            <h2 className='message'>{message}</h2>
           </div>
         </div>
       </section>
