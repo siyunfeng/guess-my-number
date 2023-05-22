@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import iconScore from '../img/score.png';
 import iconHighestScore from '../img/high-score.png';
 
@@ -12,7 +12,8 @@ const [
   initMessage,
   initErrMessage,
   initIsWin,
-] = ['?', '', 20, 0, 1, 20, 'Start guessing...', '', false];
+  initIsLost,
+] = ['?', '', 100, 0, 1, 20, 'Start guessing...', '', false, false];
 
 const [noNum, correctNum, tooHigh, tooLow, lost, errMsg] = [
   `🚫 No number found! `,
@@ -33,6 +34,7 @@ const GuessingBoard = () => {
   const [message, setMessage] = useState(initMessage);
   const [errMessage, setErrMessage] = useState(initErrMessage);
   const [isWin, setIsWin] = useState(initIsWin);
+  const [isLost, setIsLost] = useState(initIsLost);
 
   const handleChange = (e) => {
     if (e === '') {
@@ -52,6 +54,7 @@ const GuessingBoard = () => {
     setCurrentNum(initCurrentNum);
     setScore(initScore);
     setIsWin(initIsWin);
+    setIsLost(initIsLost);
     setMessage(initMessage);
     handleChange(initGuess);
 
@@ -69,18 +72,22 @@ const GuessingBoard = () => {
           setHighestScore(score);
         }
       } else if (guess !== secretNum) {
-        if (!score) {
-          setMessage(lost);
-          setScore(0);
-        } else {
+        setScore(score - 20);
+        if (score > 0) {
           setMessage(guess > secretNum ? tooHigh : tooLow);
-          setScore(score - 1);
         }
       }
     } else {
       setMessage(noNum);
     }
   };
+
+  useEffect(() => {
+    if (score === 0) {
+      setMessage(lost);
+      setIsLost(true);
+    }
+  }, [score, guess]);
 
   return (
     <main className={isWin ? 'main-won' : ''}>
@@ -106,7 +113,7 @@ const GuessingBoard = () => {
                 onChange={handleChange}
               />
               <p className='input-err-message'>{errMessage}</p>
-              <button className='btn submit-guess' disabled={isWin}>
+              <button className='btn submit-guess' disabled={isWin || isLost}>
                 Guess
               </button>
             </form>
