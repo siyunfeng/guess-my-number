@@ -90,7 +90,7 @@ const GuessingBoard = () => {
   }, [score, guess]);
 
   return (
-    <main className={isWin ? 'main-won' : ''}>
+    <main className={`${isWin ? 'main-won' : ''} ${isLost ? 'main-lost' : ''}`}>
       <button className='btn new-game' onClick={newGame}>
         New Game
       </button>
