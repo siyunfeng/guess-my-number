@@ -164,7 +164,7 @@ h1 {
   margin: 0.5rem 0 5rem;
 }
 
-.won {
+.won, .lost {
   font-weight: 700;
   font-family: 'Zilla Slab Highlight', 'Nabla', 'Arial Narrow', Arial, sans-serif;
   font-size: 4rem;

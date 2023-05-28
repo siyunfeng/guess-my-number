@@ -20,7 +20,7 @@ const [noNum, correctNum, tooHigh, tooLow, lost, errMsg] = [
   `💡 Correct! You won! `,
   `Too high! Go lower ⬇️ `,
   `Too low! Go higher ⬆️ `,
-  `💔 You lost the game! `,
+  `💀 You lost the game! `,
   `⚠️ Please input a number between ${inputMin} and ${inputMax}. ⚠️`,
 ];
 
@@ -119,7 +119,13 @@ const GuessingBoard = () => {
             </form>
           </div>
           <div className='right'>
-            <h2 className={`message ${isWin ? 'won' : ''}`}>{message}</h2>
+            <h2
+              className={`message ${isWin ? 'won' : ''} ${
+                isLost ? 'lost' : ''
+              }`}
+            >
+              {message}
+            </h2>
             <div className='score-board'>
               <div className='current-score-label'>
                 <img src={iconScore} alt='Score' className='icon-score-board' />
