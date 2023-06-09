@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className='App-header'>
+    <header>
       <div id='title'>
         <h1>Guess My Number</h1>
         <h2 className='between'>{`<Between 1 and 20>`}</h2>

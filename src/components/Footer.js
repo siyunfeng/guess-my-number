@@ -13,6 +13,7 @@ const Footer = () => {
             <img src={iconGitHub} alt='My GitHub' />
           </a>
         </div>
+        <p>Made with ❤️ in New York</p>
       </div>
     </footer>
   );

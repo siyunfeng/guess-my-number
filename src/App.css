@@ -15,7 +15,7 @@ html {
 
 body {
   font-family: 'Josefin Sans', 'Cherry Swash', sans-serif;
-  color: #eee;
+  color: white;
   background-image: url('../src/img/bg-clark-board.png');
   object-fit: cover;
 } 
@@ -25,14 +25,10 @@ body {
 
 header {
   position: relative;
-  height: 20rem;
 }
 
 main {
-  height: 65vh;
-  color: #eee;
-  border-top: 0.5rem solid #ffffff;
-  border-bottom: 0.5rem solid #ffffff;
+  color: white;
 }
 
 .main-box {
@@ -41,39 +37,45 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 3rem auto 0;
 }
 
-.main-box-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 5rem;
+.current-guess {
+  font-size: 6rem;
+  background: white;
+  color: black;
+  text-align: center;
+  width: 15rem;
+  padding: 3rem 0rem;
+  margin: 2rem;
 }
 
-.left {
-  width: 55rem;
+.guess-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 2rem;
+  margin: 3rem;
+  width: 395px;
+  height: 280px;
 }
 
-.right {
-  width: 55rem;
-  font-size: 2rem;
-  padding: 2rem 2rem 2rem 15rem;
+.message-box {
+  display: flex;
+  justify-content: center;
+}
+
+.message-board {
+  width: 390px;
+  padding: 2rem;
 }
 
 /* Elements Style*/
 
 #title {
   text-align: center;
-  position: absolute;
-  width: 100%;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 3rem auto;
 }
 
 h1 {
@@ -87,28 +89,17 @@ h1 {
 }
 
 .new-game {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-}
-
-.current-guess {
-  font-size: 6rem;
-  background: #ffffffe7;
-  color: #000000;
-  text-align: center;
-  width: 15rem;
-  padding: 3rem 0rem;
-  margin-top: 2rem;
+  margin: 1.5rem;
 }
 
 .btn {
   border: none;
-  background-color: #eee;
-  color: #222;
+  background-color: white;
+  color: black;
   font-size: 2rem;
-  font-family:  'Alegreya','Cherry Swash', 'Arial Narrow', Arial, sans-serif;
-  padding: 2rem 3rem;
+  font-family:  'Josefin Sans', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  padding: 2rem;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -122,7 +113,7 @@ h1 {
 
 .guess {
   background: none;
-  border: 4px solid #eee;
+  border: 4px solid white;
   font-family: inherit;
   color: inherit;
   font-size: 5rem;
@@ -141,14 +132,13 @@ h1 {
 
 .input-err-message {
   font-family: inherit;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: bold;
   margin: 1rem;
 }
 
 .submit-guess {
   padding: 2rem;
-  margin-top: 2rem;
 }
 
 .score-board {
@@ -162,12 +152,13 @@ h1 {
 
 .message {
   margin: 0.5rem 0 5rem;
+  font-size: 32px;
 }
 
 .won, .lost {
   font-weight: 700;
   font-family: 'Zilla Slab Highlight', 'Nabla', 'Arial Narrow', Arial, sans-serif;
-  font-size: 4rem;
+  font-size: 45px;
   animation: float 0.7s ease-in-out infinite;
 }
 
@@ -185,10 +176,12 @@ h1 {
 
 .main-won {
   background-image: url('./img/win1.png');
+  object-fit: contain;
 }
 
 .main-lost {
   background-image: url('./img/lost.png');
+  object-fit: contain;
 }
 
 .icon-score-board {
@@ -202,6 +195,9 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .social-icon {
@@ -227,7 +223,7 @@ h1 {
   width: 42px;
   height: 42px;
   position: absolute;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 50%;
   transform: scale(0);
   transition: 0.3s ease-in-out;
@@ -245,4 +241,39 @@ h1 {
 
 .social-icon a:hover img {
   filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+@media (max-width: 1024px) {
+  .main-box-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  } 
+}
+
+@media (max-width: 415px) {
+  .message-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  } 
+
+  .message {
+    font-size: 28px;
+  }
+  
+  .won, .lost {
+    font-size: 35px;
+  }
+
+  .message-board {
+    padding: 20px;
+  }
+
+  .guess-box {
+    margin: 0;
+    padding: 20px 3px;
+  }
 }

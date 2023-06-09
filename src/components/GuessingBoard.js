@@ -17,11 +17,11 @@ const [
 
 const [noNum, correctNum, tooHigh, tooLow, lost, errMsg] = [
   `🚫 No number found! `,
-  `💡 Correct! You won! `,
+  `💡 Correct!!! `,
   `Too high! Go lower ⬇️ `,
   `Too low! Go higher ⬆️ `,
-  `💀 You lost the game! `,
-  `⚠️ Please input a number between ${inputMin} and ${inputMax}. ⚠️`,
+  `💀 Game Over! `,
+  `⚠️ Please input a number between ${inputMin} and ${inputMax}.`,
 ];
 
 let secretNum = Math.trunc(Math.random() * inputMax) + inputMin;
@@ -95,15 +95,13 @@ const GuessingBoard = () => {
         New Game
       </button>
       <section className='main-box'>
-        <div
-          className={`current-guess main-box-top ${
-            isWin ? 'correct-guess' : ''
-          }`}
-        >
-          {currentNum}
+        <div className='main-box-top'>
+          <div className={`current-guess ${isWin ? 'correct-guess' : ''}`}>
+            {currentNum}
+          </div>
         </div>
-        <div className='main-box-bottom'>
-          <div className='left'>
+        <div className='message-box'>
+          <div className='guess-box'>
             <form onSubmit={onGuess}>
               <input
                 type='number'
@@ -118,7 +116,7 @@ const GuessingBoard = () => {
               </button>
             </form>
           </div>
-          <div className='right'>
+          <div className='message-board'>
             <h2
               className={`message ${isWin ? 'won' : ''} ${
                 isLost ? 'lost' : ''

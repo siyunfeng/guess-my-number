@@ -7,7 +7,9 @@ function App() {
   return (
     <div className='App'>
       <Header />
+      <hr />
       <GuessingBoard />
+      <hr />
       <Footer />
     </div>
   );
