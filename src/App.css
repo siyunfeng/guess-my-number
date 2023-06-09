@@ -45,7 +45,7 @@ main {
   background: white;
   color: black;
   text-align: center;
-  width: 15rem;
+  width: 14.5rem;
   padding: 3rem 0rem;
   margin: 2rem;
 }
@@ -253,11 +253,46 @@ h1 {
 }
 
 @media (max-width: 415px) {
+  #title {
+    text-align: center;
+    margin: 1.5rem auto;
+  }
+  
+  h1 {
+    font-size: 30px;
+    font-family: 'Ribeye Marrow', 'Sancreek', 'Nabla', monospace;
+  }
+
+  .between {
+    font-size: 20px;
+    padding: 1.5rem 0;
+  }
+
+  .main-box {
+    margin: 10px 0 0;
+  }
+
+  .current-guess {
+    font-size: 42px; 
+    background: white;
+    color: black;
+    text-align: center;
+    width: 106px;
+    padding: 2rem auto;
+    margin: 1rem;
+  }
+
+  .guess {
+    font-size: 38px;
+    padding: 1.8rem;
+    width: 18rem;
+  }
+
   .message-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   } 
 
   .message {
@@ -268,6 +303,10 @@ h1 {
     font-size: 35px;
   }
 
+  .correct-guess {
+    color: #faca2d;
+  }
+
   .message-board {
     padding: 20px;
   }
@@ -275,5 +314,6 @@ h1 {
   .guess-box {
     margin: 0;
     padding: 20px 3px;
+    height: 200px;
   }
 }
