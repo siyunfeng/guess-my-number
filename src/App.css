@@ -255,7 +255,7 @@ h1 {
 @media (max-width: 415px) {
   #title {
     text-align: center;
-    margin: 1.5rem auto;
+    margin: 1rem auto;
   }
   
   h1 {
@@ -272,6 +272,12 @@ h1 {
     margin: 10px 0 0;
   }
 
+  .btn {
+    padding: 1.3rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+  }
+
   .current-guess {
     font-size: 42px; 
     background: white;
@@ -279,13 +285,20 @@ h1 {
     text-align: center;
     width: 106px;
     padding: 2rem auto;
-    margin: 1rem;
+    margin: 0;
+  }
+
+  .input-err-message {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0.3rem;
   }
 
   .guess {
     font-size: 38px;
     padding: 1.8rem;
     width: 18rem;
+    margin: 0;
   }
 
   .message-box {
@@ -295,8 +308,21 @@ h1 {
     align-items: center;
   } 
 
+  .score-board {
+    font-size: 20px;
+  }
+
+  .icon-score-board {
+    width: 40px;
+  }
+
+  .current-score-label, .highest-score-label {
+    margin-bottom: 1rem;
+  }
+  
   .message {
     font-size: 28px;
+    margin: 0.5rem 0 2rem;
   }
   
   .won, .lost {
@@ -308,12 +334,13 @@ h1 {
   }
 
   .message-board {
-    padding: 20px;
+    padding: 8px 20px;
+    margin-bottom: 15px;
   }
 
   .guess-box {
     margin: 0;
-    padding: 20px 3px;
+    padding: 15px 3px;
     height: 200px;
   }
 }
