@@ -23,3 +23,5 @@ Website Icon:
 <a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by tulpahn - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/high-score" title="high score icons">High score icons created by flatart_icons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/add" title="add icons">Add icons created by Uniconlabs - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/less" title="less icons">Less icons created by Uniconlabs - Flaticon</a>

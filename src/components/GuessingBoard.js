@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import iconScore from '../img/score.png';
 import iconHighestScore from '../img/high-score.png';
+import increaseBtn from '../img/add.png';
+import decreaseBtn from '../img/minus.png';
 
 const [
   initCurrentNum,
@@ -37,15 +39,15 @@ const GuessingBoard = () => {
   const [isLost, setIsLost] = useState(initIsLost);
 
   const handleChange = (e) => {
-    if (e === '') {
-      setGuess(e);
-    } else {
+    setErrMessage(initErrMessage);
+
+    if (e) {
       let inputValue = Number(e.target.value);
-      if (inputValue < 1 || inputValue > 20) {
-        setErrMessage(errMsg);
-      } else {
+      if (inputValue >= 1 && inputValue <= 20) {
         setErrMessage(initErrMessage);
         setGuess(inputValue);
+      } else {
+        setErrMessage(errMsg);
       }
     }
   };
@@ -57,13 +59,15 @@ const GuessingBoard = () => {
     setIsLost(initIsLost);
     setMessage(initMessage);
     handleChange(initGuess);
+    setGuess(initGuess);
 
     secretNum = Math.trunc(Math.random() * 20) + 1;
   };
 
   const onGuess = (e) => {
     e.preventDefault();
-    if (guess) {
+    setErrMessage(initErrMessage);
+    if (guess && guess >= 1 && guess <= 20) {
       setCurrentNum(guess);
       if (guess === secretNum) {
         setMessage(correctNum);
@@ -77,8 +81,23 @@ const GuessingBoard = () => {
           setMessage(guess > secretNum ? tooHigh : tooLow);
         }
       }
+    } else if (guess && guess < 1 && guess > 20) {
+      setErrMessage(errMsg);
     } else {
       setMessage(noNum);
+    }
+  };
+
+  const decrease = () => {
+    if (guess >= 2) {
+      setErrMessage(initErrMessage);
+      setGuess(Number(guess) - 1);
+    }
+  };
+  const increase = () => {
+    if (guess < 20) {
+      setErrMessage(initErrMessage);
+      setGuess(Number(guess) + 1);
     }
   };
 
@@ -103,12 +122,23 @@ const GuessingBoard = () => {
         <div className='message-box'>
           <div className='guess-box'>
             <form onSubmit={onGuess}>
+              <img
+                src={decreaseBtn}
+                className='decrease'
+                alt='decrease'
+                onClick={decrease}
+              />
               <input
-                type='number'
-                min={1}
-                max={20}
+                type='text'
                 className='guess'
+                value={guess}
                 onChange={handleChange}
+              />
+              <img
+                src={increaseBtn}
+                className='increase'
+                alt='increase'
+                onClick={increase}
               />
               <p className='input-err-message'>{errMessage}</p>
               <button className='btn submit-guess' disabled={isWin || isLost}>

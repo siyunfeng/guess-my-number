@@ -118,7 +118,7 @@ h1 {
   color: inherit;
   font-size: 5rem;
   padding: 2.5rem;
-  width: 25rem;
+  width: 18rem;
   text-align: center;
   margin-bottom: 0.5rem;
 }
@@ -128,6 +128,11 @@ h1 {
   color: #faca2d;
   font-size: 8rem;
   border-radius: 50%;
+}
+
+.decrease, .increase {
+  width: 45px;
+  margin: auto 10px;
 }
 
 .input-err-message {
@@ -252,7 +257,7 @@ h1 {
   } 
 }
 
-@media (max-width: 415px) {
+@media (max-width: 900px) {
   #title {
     text-align: center;
     margin: 1rem auto;
@@ -297,7 +302,7 @@ h1 {
   .guess {
     font-size: 38px;
     padding: 1.8rem;
-    width: 18rem;
+    width: 15rem;
     margin: 0;
   }
 
