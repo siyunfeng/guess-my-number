@@ -99,16 +99,21 @@ h1 {
   font-size: 2rem;
   font-family:  'Josefin Sans', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
+  border-radius: 10%;
   padding: 2rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .btn:hover {
   color: white;
   background-color: #faca2d;
   font-weight: bold;
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 .guess {
@@ -128,6 +133,7 @@ h1 {
   color: #faca2d;
   font-size: 8rem;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .decrease, .increase {
@@ -173,7 +179,7 @@ h1 {
   font-weight: 700;
   font-family: 'Zilla Slab Highlight', 'Nabla', 'Arial Narrow', Arial, sans-serif;
   font-size: 45px;
-  animation: float 0.7s ease-in-out infinite;
+  animation: float 0.77s ease-in-out infinite;
 }
 
 @keyframes float {
