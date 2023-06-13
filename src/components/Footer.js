@@ -6,14 +6,31 @@ const Footer = () => {
     <footer className='footer'>
       <div>
         <div className='social-icon'>
-          <a href='https://www.linkedin.com/in/siyunfeng/'>
+          <a
+            href='https://www.linkedin.com/in/siyunfeng/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <img src={iconLinkedIn} alt='My LinkedIn' />
           </a>
-          <a href='https://github.com/siyunfeng'>
+          <a
+            href='https://github.com/siyunfeng'
+            target='_blank'
+            rel='noreferrer'
+          >
             <img src={iconGitHub} alt='My GitHub' />
           </a>
         </div>
-        <p>Made with ❤️ in New York</p>
+        <p>
+          Made with ❤️ by{' '}
+          <a
+            href='https://www.linkedin.com/in/siyunfeng/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            Siyun Feng
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -122,24 +122,26 @@ const GuessingBoard = () => {
         <div className='message-box'>
           <div className='guess-box'>
             <form onSubmit={onGuess}>
-              <img
-                src={decreaseBtn}
-                className='decrease'
-                alt='decrease'
-                onClick={decrease}
-              />
-              <input
-                type='text'
-                className='guess'
-                value={guess}
-                onChange={handleChange}
-              />
-              <img
-                src={increaseBtn}
-                className='increase'
-                alt='increase'
-                onClick={increase}
-              />
+              <div className='guess-options'>
+                <img
+                  src={decreaseBtn}
+                  className='decrease'
+                  alt='decrease'
+                  onClick={decrease}
+                />
+                <input
+                  type='text'
+                  className='guess'
+                  value={guess}
+                  onChange={handleChange}
+                />
+                <img
+                  src={increaseBtn}
+                  className='increase'
+                  alt='increase'
+                  onClick={increase}
+                />
+              </div>
               <p className='input-err-message'>{errMessage}</p>
               <button className='btn submit-guess' disabled={isWin || isLost}>
                 Guess
