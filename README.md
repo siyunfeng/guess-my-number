@@ -1,20 +1,27 @@
-# Guess My Number with Siyun
+![](/src/img/guess-my-number-banner.png)
+
+# Guess My Number
+
+[Try it here](https://guess-siyun-number.onrender.com/)
+
+## Contributor
+
+- [Siyun Feng](https://www.linkedin.com/in/siyunfeng)
+
+## Technologies
+
+- JavaScript
+- React
+- HTML
+- CSS
 
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 ## Credits
 
