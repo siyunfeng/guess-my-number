@@ -89,13 +89,13 @@ const GuessingBoard = () => {
   };
 
   const decrease = () => {
-    if (guess >= 2) {
+    if (guess >= 2 && !isWin && !isLost) {
       setErrMessage(initErrMessage);
       setGuess(Number(guess) - 1);
     }
   };
   const increase = () => {
-    if (guess < 20) {
+    if (guess < 20 && !isWin && !isLost) {
       setErrMessage(initErrMessage);
       setGuess(Number(guess) + 1);
     }
