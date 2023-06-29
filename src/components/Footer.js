@@ -24,7 +24,7 @@ const Footer = () => {
         <p>
           Made with ❤️ by{' '}
           <a
-            href='https://siyun-feng.onrender.com/'
+            href='https://siyunfeng.vercel.app/'
             target='_blank'
             rel='noreferrer'
           >
