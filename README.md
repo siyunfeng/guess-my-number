@@ -14,6 +14,7 @@
 - React
 - HTML
 - CSS
+- NodeJS
 
 ### `npm start`
 
